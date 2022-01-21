@@ -83,7 +83,7 @@ module.exports = async (client) => {
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
-          
+          if (!data) {
            data =  new warnSchema({
               _id: warnId,
               userId: user.user.id,
@@ -91,9 +91,9 @@ module.exports = async (client) => {
               timestamp: msg.createdTimestamp,
               expires
             });
-            data.save();
-          
-              
+           
+          }
+          data.save();
           
             if(data.content.length > 2) {
               const log = new MessageEmbed()
