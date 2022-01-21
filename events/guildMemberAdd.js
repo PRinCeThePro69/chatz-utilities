@@ -24,7 +24,6 @@ client.on('guildMemberAdd', (mem) => {
         .setTitle('Someone has joined us!')
         .setColor('GREEN')
         .addField('User', `${mem}`)
- 
         .setTimestamp()
            
            general.send({
