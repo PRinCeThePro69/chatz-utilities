@@ -92,7 +92,7 @@ module.exports = async (client) => {
           
 
           if(data) {
-           if(data.length > 2) {
+           if(data.length >= 3) {
               const log = new MessageEmbed()
             .setTitle('New Mute!')
             .setColor('RED')
@@ -132,7 +132,8 @@ module.exports = async (client) => {
           } catch (err) {
             console.log(err)
           }
-            } 
+          warnSchema.deleteMany({ userId: user.user.id})
+            }
         }
         }))
 
