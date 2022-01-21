@@ -84,7 +84,7 @@ module.exports = async (client) => {
         }, (err, data) => {
           if(err) console.log(e)
           
-          const data =  new warnSchema({
+           data =  new warnSchema({
               _id: warnId,
               userId: user.user.id,
               reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
