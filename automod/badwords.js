@@ -85,7 +85,7 @@ module.exports = async (client) => {
         }).save();
 
         
-        warnSchema.findOne({
+        warnSchema.find({
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
@@ -100,7 +100,7 @@ module.exports = async (client) => {
           //   .addField('Reason', 'Multiple AutoMod Infractions')
           //   .addField('Duration', '1 hour')
           //   .setTimestamp()
-console.log(data.count)
+console.log(data)
 
           // var mutedEm = new MessageEmbed()
           //   .setColor('RED')
