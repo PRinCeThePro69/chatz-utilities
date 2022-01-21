@@ -82,59 +82,59 @@ module.exports = async (client) => {
           reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
           timestamp: msg.createdTimestamp,
           expires
-        }).save();
+        }).save().then
 
         
-        warnSchema.find({
+       ( warnSchema.find({
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
           
 
           if(data) {
-         //   if(data.content.length > 2) {
-          //     const log = new MessageEmbed()
-          //   .setTitle('New Mute!')
-          //   .setColor('RED')
-          //   .addField('User', `${msg.author}`)
-          //   .addField('Reason', 'Multiple AutoMod Infractions')
-          //   .addField('Duration', '1 hour')
-          //   .setTimestamp()
-console.log(data.length)
+           if(data.length > 2) {
+              const log = new MessageEmbed()
+            .setTitle('New Mute!')
+            .setColor('RED')
+            .addField('User', `${msg.author}`)
+            .addField('Reason', 'Multiple AutoMod Infractions')
+            .addField('Duration', '1 hour')
+            .setTimestamp()
 
-          // var mutedEm = new MessageEmbed()
-          //   .setColor('RED')
-          //   .setDescription(`**${msg.author.username}** has been muted for continuous infractions`)
-          // msg.channel.send({
-          //   embeds: [mutedEm]
-          // }).then(m => {
-          //   setTimeout(() => {
-          //     m.delete()
-          //   }, 10000)
-          // })
-          // msg.member.timeout(60 * 60 * 1000, '[Automod] Innapropriate language').catch((e) => {
-          //   console.log(e)
-          // })
-          // logch.send({
-          //   embeds: [log]
-          // })
-          // try {
-          //   var yougotmuted = new MessageEmbed()
-          //     .setColor('RED')
-          //     .setTitle(`You have been muted in ${msg.guild.name}`)
-          //     .setDescription('You have been muted after 3 continuous infractions')
-          //     .addField('Reason', 'Multiple AutoMod Infractions')
-          //     .addField('Expires', '1h')
-          //   msg.author.send({
-          //     embeds: [yougotmuted]
-          //   })
 
-          // } catch (err) {
-          //   console.log(err)
-          // }
-          //   } 
+          var mutedEm = new MessageEmbed()
+            .setColor('RED')
+            .setDescription(`**${msg.author.username}** has been muted for continuous infractions`)
+          msg.channel.send({
+            embeds: [mutedEm]
+          }).then(m => {
+            setTimeout(() => {
+              m.delete()
+            }, 10000)
+          })
+          msg.member.timeout(60 * 60 * 1000, '[Automod] Innapropriate language').catch((e) => {
+            console.log(e)
+          })
+          logch.send({
+            embeds: [log]
+          })
+          try {
+            var yougotmuted = new MessageEmbed()
+              .setColor('RED')
+              .setTitle(`You have been muted in ${msg.guild.name}`)
+              .setDescription('You have been muted after 3 continuous infractions')
+              .addField('Reason', 'Multiple AutoMod Infractions')
+              .addField('Expires', '1h')
+            msg.author.send({
+              embeds: [yougotmuted]
+            })
+
+          } catch (err) {
+            console.log(err)
+          }
+            } 
         }
-        })
+        }))
 
          // end of 3 ...
 
