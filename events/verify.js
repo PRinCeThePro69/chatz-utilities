@@ -10,10 +10,7 @@ client.on("interactionCreate", async (interaction) => {
 	
    if (interaction.isButton()) {
 	if (interaction.customId === "verify") {
-    	interaction.reply({
-		content: "Check your dms.",
-	 	ephemeral: true
-      });
+    
       
 	const member = interaction.member
 if (member.roles.cache.some(role => role.name === 'Verified')) {
@@ -22,7 +19,10 @@ if (member.roles.cache.some(role => role.name === 'Verified')) {
 		ephemeral: true
 	}) 
 } else {
-
+	interaction.reply({
+		content: "Check your dms.",
+	 	ephemeral: true
+      });
 //   	member.roles.add("931470565074673714")
 // 		interaction.reply({
 // 		content: "You are now verified.",
