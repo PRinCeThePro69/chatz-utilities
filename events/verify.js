@@ -1,5 +1,5 @@
 const client = require("../index");
-const{ Captcha }= require('captcha-canvas')
+const{ Captcha } = require('captcha-canvas')
 // path = require('path'),
 // fs = require('fs') 
 
