@@ -25,14 +25,5 @@ client.on("messageCreate", async (msg) => {
         }).save();
     }
 });
-client.on('guildMemberAdd', (mem) => {
-    const didsent = sentmsgSchema.findOne({
-        userId: mem.id,
-        sent: true
-    });
-    if (didsent && didsent.length) {
-        mem.roles.add("934082996481437746")
-    };
-    
-})
+
 // auto mod stuff
