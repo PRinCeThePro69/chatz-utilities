@@ -15,7 +15,7 @@ client.on('guildMemberAdd', (mem) => {
         }
     });
  
-       let guilld = client.guilds.cache.get('930503731974385694');
+     /*  let guilld = client.guilds.cache.get('930503731974385694');
     let general = guilld.channels.cache.get('930503731974385697')
       var testContent = msg.content;
       if(isValidURL(testContent) && !msg.member.permissions.has('ADMINISTRATOR')) {
@@ -29,4 +29,5 @@ client.on('guildMemberAdd', (mem) => {
            general.send({
               embeds: [gc]
            })
+	   */
 })
