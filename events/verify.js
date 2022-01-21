@@ -30,10 +30,10 @@ if (member.roles.cache.some(role => role.name === 'Verified')) {
 // }) 
   const captcha = new Captcha();
 
-  captcha.async = true;
-  captcha.addDecoy = true;
-  captcha.drawTrace = true;
-  captcha.drawCaptcha = true;
+  captcha.async
+  captcha.addDecoy
+  captcha.drawTrace
+  captcha.drawCaptcha
 
 const attachment = new MessageAttachment(
   await captcha.png,
