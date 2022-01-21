@@ -58,7 +58,7 @@ try {
 const response = await msg.channel.awaitMessages({
 	filter,
 	max: 1,
-	time: 10000,
+	time: 60000,
 	errors: ['time']
 });
 if (response) {
