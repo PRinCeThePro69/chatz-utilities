@@ -1,6 +1,7 @@
 
 const client = require("../index");
 const warnSchema = require('../models/punishments')
+const autowarnSchema = require('../models/automodSchema')
 client.on("ready", () => {
 
     console.log(`${client.user.tag} is up and ready to go!`); 
@@ -18,6 +19,20 @@ const checkWarns = async () => {
        await warnSchema.deleteMany(conditional).catch(err => console.log(err))
         console.log('deleted some warns :D')
     }  
-}
+};
+const checkautow = async () => {
+    const now = new Date()
+ const conditional = {
+     expires: {
+         $lt: now
+     }
+ }
+ const results = await autowarnSchema.find(conditional)
+ if(results && results.length) {
+    await autowarnSchema.deleteMany(conditional).catch(err => console.log(err))
+     console.log('deleted some auto-warns :D')
+ }                          
+};                                               
 setInterval(checkWarns, 1000 * 60 * 5)
+setInterval(checkautow, 1000 * 60)
 });
