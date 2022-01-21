@@ -20,7 +20,7 @@ if (member.roles.cache.some(role => role.name === 'Verified')) {
 	}) 
 } else {
 	interaction.reply({
-		content: "Check your dms.",
+		content: "Check your messages (if you do not have a message from me, make sure your messages are enabled!)",
 	 	ephemeral: true
       });
 //   	member.roles.add("931470565074673714")
@@ -41,7 +41,7 @@ const attachment = new MessageAttachment(
 );
 const embed = new MessageEmbed()
 .setTitle('Please solve the captcha!')
-.setDescription('Please solve the captcha in 1 minute to not get kicked and get access to the whole server.')
+.setDescription('You have one minute to solve the captcha and get access to the server, else you will be kicked!')
 .setImage('attachment://captcha.png');
 
 const msg = await member.send({
@@ -75,18 +75,18 @@ let guilld = client.guilds.cache.get('930503731974385694');
         .setColor('BLUE')
         .setAuthor(`${client.user.username}`, client.user.avatarURL())
          .setTitle( `You have been kicked from ${interaction.guild.name}`)
-        .addField(`Reason`, "[Auto] Didn't verify in time.")  .setTimestamp()
+        .addField(`Reason`, "[Verify] Failed to verify within 60 seconds!")  .setTimestamp()
         const log = new MessageEmbed()
         .setTitle('New kick!')
         .setColor('RED')
         .addField('User', `${interaction.member}`)
-        .addField('Reason', `[Auto] Didn't verify in time.`)
-        .addField('Moderator', `Me lmao...`)
+        .addField('Reason', `[Verify] Failed to verify within 60 seconds!`)
+        .addField('Moderator', `Me`)
         .setTimestamp();
         await interaction.member.send({
           embeds: [dm]
         });
-        await member.kick("[Auto] Didn't verify in time.").catch((e) => {console.log(e)})
+        await member.kick("[Verify] Failed to verify within 60 seconds!").catch((e) => {console.log(e)})
         await logch.send({ embeds: [log]})
 }
 
