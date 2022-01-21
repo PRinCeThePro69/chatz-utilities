@@ -61,7 +61,7 @@ const response = msg.channel.awaitMessages({
 	time: 10000,
 	errors: ['time']
 });
-if (response) {
+if (response(true)) {
 // member.roles.add("931470565074673714")
 //   member.send({
 //     content: "You are now verified!"
