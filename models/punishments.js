@@ -1,12 +1,8 @@
 const mongoose = require('mongoose')
-
-
 const reqString = {
     type: String,
     required: true
 };
-
-
 const punishmentSchema = mongoose.Schema({
     _id: reqString,
     userId: reqString,
@@ -18,9 +14,7 @@ const punishmentSchema = mongoose.Schema({
         type: Date,
         required: false
     },
-
 }, {
     timestamps: true
 })
-
 module.exports = mongoose.model('punishment-chatchill', punishmentSchema)
