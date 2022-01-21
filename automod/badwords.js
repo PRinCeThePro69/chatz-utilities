@@ -89,7 +89,7 @@ module.exports = async (client) => {
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
-          if(data){
+          
             if(data.content.length > 2) {
               const log = new MessageEmbed()
             .setTitle('New Mute!')
@@ -131,7 +131,7 @@ module.exports = async (client) => {
             console.log(err)
           }
             } 
-          }
+          
         })
 
          // end of 3 ...
