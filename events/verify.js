@@ -53,15 +53,20 @@ const filter = (message) => {
   if(message.author.id !== member.id) return;
   if(message.content === captcha.text) return true;
   else member.send('That\'s the wrong captcha! Please verify again.');
-}
+};
 try {
-const response = msg.channel.awaitMessages({filter, max: 1, time: 60000, errors: ['time']});
-
+const response = msg.channel.awaitMessages({
+	filter,
+	max: 1,
+	time: 10000,
+	errors: ['time']
+});
 if (response) {
-member.roles.add("931470565074673714")
-  member.send({
-    content: "You are now verified!"
-  })
+// member.roles.add("931470565074673714")
+//   member.send({
+//     content: "You are now verified!"
+//   })
+console.log(response)
 }
 } catch (err) {
 let guilld = client.guilds.cache.get('930503731974385694');
