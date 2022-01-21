@@ -76,27 +76,22 @@ module.exports = async (client) => {
 
 
 
-
+        new warnSchema({
+          _id: warnId,
+          userId: user.user.id,
+          reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
+          timestamp: msg.createdTimestamp,
+          expires
+        }).save();
 
         
         warnSchema.findOne({
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
-           if(!data)
-           {
-           data =  new warnSchema({
-              _id: warnId,
-              userId: user.user.id,
-              reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
-              timestamp: msg.createdTimestamp,
-              expires
-            });
            
-           }
-          data.save();
 
-          if(data ) {
+          if(data) {
             if(data.content.length > 2) {
               const log = new MessageEmbed()
             .setTitle('New Mute!')
