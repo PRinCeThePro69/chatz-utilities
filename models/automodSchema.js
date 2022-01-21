@@ -12,7 +12,6 @@ const automodSchema = mongoose.Schema({
         type: Date,
         required: true
     },
-
 }, {
     timestamps: true
 })
