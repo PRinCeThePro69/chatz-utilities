@@ -92,7 +92,7 @@ module.exports = async (client) => {
           
 
           if(data) {
-           if(data.length >= 3) {
+           if(data.length > 2) {
               const log = new MessageEmbed()
             .setTitle('New Mute!')
             .setColor('RED')
