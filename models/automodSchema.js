@@ -1,12 +1,8 @@
 const mongoose = require('mongoose')
-
-
 const reqString = {
     type: String,
     required: true
 };
-
-
 const automodSchema = mongoose.Schema({
     _id: reqString,
     userId: reqString,
@@ -20,5 +16,4 @@ const automodSchema = mongoose.Schema({
 }, {
     timestamps: true
 })
-
 module.exports = mongoose.model('automod-warns-chatchill', automodSchema)
