@@ -114,7 +114,7 @@ module.exports = async (client) => {
           })
           msg.member.timeout(60 * 60 * 1000, '[Automod] Innapropriate language').catch((e) => {
             console.log(e)
-          })
+          }).then(warnSchema.deleteMany({ userId: user.user.id}))
           logch.send({
             embeds: [log]
           })
@@ -131,8 +131,8 @@ module.exports = async (client) => {
 
           } catch (err) {
             console.log(err)
-          }
-          warnSchema.deleteMany({ userId: user.user.id})
+          }  
+          
             }
         }
         }))
