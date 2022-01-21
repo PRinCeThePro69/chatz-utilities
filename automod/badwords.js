@@ -100,7 +100,7 @@ module.exports = async (client) => {
           //   .addField('Reason', 'Multiple AutoMod Infractions')
           //   .addField('Duration', '1 hour')
           //   .setTimestamp()
-console.log(data.length)
+console.log(data.count)
 
           // var mutedEm = new MessageEmbed()
           //   .setColor('RED')
