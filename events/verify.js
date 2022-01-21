@@ -30,7 +30,7 @@ if (member.roles.cache.some(role => role.name === 'Verified')) {
 // }) 
   const captcha = new Captcha();
 
-  captcha.async()
+  captcha.async = true;
   captcha.addDecoy()
   captcha.drawTrace()
   captcha.drawCaptcha()
