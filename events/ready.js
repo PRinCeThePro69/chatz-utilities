@@ -19,7 +19,8 @@ const checkWarns = async () => {
        await warnSchema.deleteMany(conditional).catch(err => console.log(err))
         console.log('deleted some warns :D')
     }  
-};
+}
+setInterval(checkWarns, 1000 * 60 * 5);
 const checkautow = async () => {
     const now = new Date()
  const conditional = {
@@ -32,7 +33,7 @@ const checkautow = async () => {
     await autowarnSchema.deleteMany(conditional).catch(err => console.log(err))
      console.log('deleted some auto-warns :D')
  }                          
-};                                               
-setInterval(checkWarns, 1000 * 60 * 5)
-setInterval(checkautow, 1000 * 60)
+}                                               
+
+setInterval(checkautow, 1000 * 15);
 });

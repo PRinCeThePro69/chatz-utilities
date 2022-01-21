@@ -92,7 +92,8 @@ module.exports = async (client) => {
           
 
           if(data) {
-           if(Number.isInteger(data.length / 3)) {
+         const   warncount = data.length + 1
+           if(Number.isInteger(warncount / 3)) {
               const log = new MessageEmbed()
             .setTitle('New Mute!')
             .setColor('RED')
