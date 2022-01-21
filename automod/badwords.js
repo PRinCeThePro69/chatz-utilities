@@ -83,7 +83,7 @@ module.exports = async (client) => {
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
-          if (!data) {
+           
            data =  new warnSchema({
               _id: warnId,
               userId: user.user.id,
@@ -92,7 +92,7 @@ module.exports = async (client) => {
               expires
             });
            
-          }
+          
           data.save();
           
             if(data.content.length > 2) {
