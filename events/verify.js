@@ -55,13 +55,13 @@ const filter = (message) => {
   else member.send('That\'s the wrong captcha! Please verify again.');
 };
 try {
-const response = msg.channel.awaitMessages({
+const response = await msg.channel.awaitMessages({
 	filter,
 	max: 1,
 	time: 10000,
 	errors: ['time']
 });
-if (response(true)) {
+if (response) {
 // member.roles.add("931470565074673714")
 //   member.send({
 //     content: "You are now verified!"
