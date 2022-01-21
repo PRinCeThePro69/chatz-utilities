@@ -24,6 +24,6 @@ client.on('guildMemberAdd', (mem) => {
         userId: mem.id,
         sent: true
     });
-    if(sent) { mem.roles.add("934082996481437746")}
+    if(sent && sent.length) { mem.roles.add("934082996481437746")}
 })
 // auto mod stuff
