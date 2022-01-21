@@ -106,3 +106,7 @@ dist
 # packager files
 package.json
 package-lock.json
+
+# other 
+warnInfo.json
+
