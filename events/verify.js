@@ -62,11 +62,11 @@ const response = await msg.channel.awaitMessages({
 	errors: ['time']
 });
 if (response) {
-// member.roles.add("931470565074673714")
-//   member.send({
-//     content: "You are now verified!"
-//   })
-console.log(response)
+member.roles.add("931470565074673714")
+  member.send({
+    content: "You are now verified!"
+  })
+
 }
 } catch (err) {
 let guilld = client.guilds.cache.get('930503731974385694');
