@@ -8,5 +8,9 @@ client.on("messageCreate", async (msg) => {
         !msg.guild 
 				    )
         return;
+
+        if(msg.channel.id === "934082965774925824") {
+            msg.member.roles.add("934082996481437746")
+        }
 });
 // auto mod stuff
