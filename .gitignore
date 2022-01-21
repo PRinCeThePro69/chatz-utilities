@@ -104,7 +104,6 @@ dist
 .tern-port
 
 # packager files
-package.json
 package-lock.json
 
 # other 
