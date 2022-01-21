@@ -75,13 +75,7 @@ module.exports = async (client) => {
         })
 
 
-        new warnSchema({
-          _id: warnId,
-          userId: user.user.id,
-          reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
-          timestamp: msg.createdTimestamp,
-          expires
-        }).save();
+
 
 
         
@@ -89,6 +83,17 @@ module.exports = async (client) => {
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
+          
+          const data =  new warnSchema({
+              _id: warnId,
+              userId: user.user.id,
+              reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
+              timestamp: msg.createdTimestamp,
+              expires
+            });
+            data.save();
+          
+              
           
             if(data.content.length > 2) {
               const log = new MessageEmbed()
