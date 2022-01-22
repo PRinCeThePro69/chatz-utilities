@@ -17,11 +17,3 @@ badwords(client)
 antiLink(client)
 antispam(client)
 client.login(process.env.token);
-const express = require("express")
-const app = express()
-app.get("/", (req, res) => {
-	res.send("ok")
-})
-app.listen("8080", () => {
-	console.log("express")
-})
