@@ -184,7 +184,7 @@ module.exports = async (client) => {
         }
       }
     }).catch((e) => {
-      console.log("An error occoured" + e)
+      return ;
     })
 
   })
