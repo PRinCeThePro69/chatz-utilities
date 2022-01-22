@@ -4,21 +4,13 @@ const {
 const warnSchema = require('../models/automodSchema')
 const Fs = require('fs')
 const ms = require('ms');
-
 module.exports = async (client) => {
-
-
   client.on('messageCreate', async (msg) => {
     if (
       msg.author.bot || !msg.guild) return;
     let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
-
     const user = msg.member;
-
-
-
-
     function makeid(length) {
       var result = '';
       var characters = '0123456789';
@@ -29,7 +21,6 @@ module.exports = async (client) => {
       return result;
     }
     let duration = 1;
-
     const expires = new Date();
     expires.setHours(expires.getHours() + duration)
     const warnId = '[AutoMod]' + makeid(16)
@@ -57,7 +48,6 @@ module.exports = async (client) => {
         'User-Agent': 'ChatAndChill / AntiSwear v1.2'
       }
     }).then(function (response) {
-
       if (response.data.toString().includes("true")) {
         msg.delete()
         logch.send({
@@ -73,24 +63,17 @@ module.exports = async (client) => {
             m.delete()
           }, 10000)
         })
-
-
-
         new warnSchema({
           _id: warnId,
           userId: user.user.id,
           reason: '[AutoMod] Using a banned word in the chat. Using bad words in public is forbidden in the server.',
           timestamp: msg.createdTimestamp,
           expires
-        }).save().then
-
-        
+        }).save().then 
        ( warnSchema.find({
           userId: user.user.id
         }, (err, data) => {
           if(err) console.log(e)
-          
-
           if(data) {
          const   warncount = data.length + 1
            if(Number.isInteger(warncount / 3)) {
@@ -101,8 +84,6 @@ module.exports = async (client) => {
             .addField('Reason', 'Multiple AutoMod Infractions')
             .addField('Duration', '1 hour')
             .setTimestamp()
-
-
           var mutedEm = new MessageEmbed()
             .setColor('RED')
             .setDescription(`**${msg.author.username}** has been muted for continuous infractions`)
@@ -129,45 +110,26 @@ module.exports = async (client) => {
             msg.author.send({
               embeds: [yougotmuted]
             })
-
           } catch (err) {
             console.log(err)
           }  
-          
             }
         }
         }))
-
-         // end of 3 ...
-
-        //  msg.member.timeout(5 * 60 * 1000, '[Automod] Innapropriate language').then(() => {
-        // 	 try {
-        // 		 const dm = new MessageEmbed()
-        // 		 .setTitle("You have recieved a mute.")
-        // 		 .setDescription("Our automoderation systems have muted you for 5 minutes for innapropriate language.")
         try {
           msg.author.send({
             embeds: [dm]
           })
         } catch (e) {
-
         }
-
-
-
-
-
-
-
-
       } else {
         const array = ['kys', 'kill yourself', 'kill urself', 'go die', 'kill ur self', 'kill your self', 'die']
-        if (array.some(w => ` ${msg.content.toLowerCase()} `.includes(` ${w} `))) { //thatll see if it includes the array
+        if (array.some(w => ` ${msg.content.toLowerCase()} `.includes(` ${w} `))) {
           const blog = new MessageEmbed()
             .setTitle('New BAN!')
             .setColor('RED')
             .addField('User', `${msg.author}`)
-            .addField('Reason', 'Telling someone to die')
+            .addField('Reason', '[Auto] Telling someone to die')
             .addField('Duration', 'Permanent')
             .setTimestamp()
           msg.delete()
@@ -179,15 +141,10 @@ module.exports = async (client) => {
           }).catch((e) => {
             console.log(e)
           })
-
-
         }
       }
     }).catch((e) => {
       return ;
     })
-
   })
-
-
 }
