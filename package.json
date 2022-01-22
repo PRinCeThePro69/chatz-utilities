@@ -11,11 +11,12 @@
     "license": "ISC",
     "dependencies": {
         "axios": "^0.24.0",
+        "captcha-canvas": "^3.1.0",
         "discord.js": "^13.6.0",
         "dotenv": "^14.2.0",
         "fs": "^0.0.1-security",
         "glob": "^7.1.7",
-        "mongoose": "^6.0.2",
+        "mongoose": "^6.1.7",
         "ms": "^2.1.3"
     }
 }
