@@ -1,0 +1,19 @@
+{
+  "name": "chatz-utilities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PRinCeThePro69/chatz-utilities.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PRinCeThePro69/chatz-utilities/issues"
+  },
+  "homepage": "https://github.com/PRinCeThePro69/chatz-utilities#readme"
+}
