@@ -11,7 +11,7 @@ module.exports = (client) => {
         let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
 
-      if(msg.mentions.users.size > 3) {
+      if(msg.mentions.size > 3) {
 		
            const log = new MessageEmbed()
         .setTitle('New Mute!')
