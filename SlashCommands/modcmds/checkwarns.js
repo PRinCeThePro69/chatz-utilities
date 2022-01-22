@@ -31,7 +31,7 @@ module.exports = {
 
         })
         
-     if(!userWarnings?.length) return interaction.followUp({ content: `**${user.tag}** doesn't have any strikes in the server.`});
+     if(!userWarnings?.length) return interaction.deferReply({ content: `**${user.tag}** doesn't have any strikes in the server.`});
    
      const embedDesc = userWarnings.map((warn) => {
         const moderator = interaction.guild.members.cache.get(warn.staffId);
@@ -48,7 +48,7 @@ module.exports = {
     .setColor('RANDOM')
     
 
-    interaction.followUp({ embeds: [rep]})
+    interaction.deferReply({ embeds: [rep]})
 
   
 }

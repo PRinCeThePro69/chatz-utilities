@@ -47,7 +47,7 @@ const chinfo = new MessageEmbed()
         .addField('Reason', `${msg}`)
      
         .setTimestamp()
-if (channel.permissionsFor('931470565074673714').has('SEND_MESSAGES') === false) {interaction.followUp("The channel is already locked.")
+if (channel.permissionsFor('931470565074673714').has('SEND_MESSAGES') === false) {interaction.deferReply("The channel is already locked.")
  // otherwise, unlock it
  } else {
        channel.permissionOverwrites.edit('931470565074673714', {
@@ -57,7 +57,7 @@ if (channel.permissionsFor('931470565074673714').has('SEND_MESSAGES') === false)
     ADD_REACTIONS: false
 
 })
-interaction.followUp({embeds: [succuss]})
+interaction.deferReply({embeds: [succuss]})
     channel.send({embeds: [chinfo]})
     logch.send({embeds: [log]})
     }

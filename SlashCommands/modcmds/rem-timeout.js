@@ -28,8 +28,8 @@ module.exports = {
        const mem = interaction.guild.members.cache.get(user.id)
        
        
-			        if (user === client.user) interaction.followUp({content: "You can't unmute me", ephemeral: true})
-			 if (mem === interaction.member) interaction.followUp("You can't unmute yourself")
+			        if (user === client.user) interaction.deferReply({content: "You can't unmute me", ephemeral: true})
+			 if (mem === interaction.member) interaction.deferReply("You can't unmute yourself")
 
        const succ = new MessageEmbed()
        .setColor('GREEN')
@@ -52,7 +52,7 @@ module.exports = {
          .setTimestamp()
 if(mem.isCommunicationDisabled(true)) {
     mem.timeout(null)
-  interaction.followUp({embeds: [succ]})
+  interaction.deferReply({embeds: [succ]})
   logch.send({embeds: [log]})
 				 user.send({
 					 embeds: [ugotunbonned]
@@ -64,7 +64,7 @@ if(mem.isCommunicationDisabled(true)) {
   
 
 } else { 
- return  interaction.followUp({content: 'They are not muted.'});
+ return  interaction.deferReply({content: 'They are not muted.'});
  
 }
 }

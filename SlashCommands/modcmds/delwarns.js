@@ -52,10 +52,10 @@ module.exports = {
              userId: user.id,
            
           })
-          interaction.followUp({embeds: [succuss]})
+          interaction.deferReply({embeds: [succuss]})
           logch.send({embeds: [log]})
        } else {
-         interaction.followUp({content: `**${user.tag}** doesn't have any strikes in the server.`})
+         interaction.deferReply({content: `**${user.tag}** doesn't have any strikes in the server.`})
        }
      } ).catch(err => {
         console.log(err)

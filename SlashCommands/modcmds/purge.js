@@ -25,8 +25,8 @@ module.exports = {
     run: async (client, interaction, args) => {
       const count = interaction.options.getInteger('count')
 
-		 if (count > 99) return interaction.followUp({content: "Error: maximum count is 99 messages.", ephemeral: true});
-     if (count < 1) return interaction.followUp({content: "Error: minimum count is 1 message.", ephemeral: true});
+		 if (count > 99) return interaction.deferReply({content: "Error: maximum count is 99 messages.", ephemeral: true});
+     if (count < 1) return interaction.deferReply({content: "Error: minimum count is 1 message.", ephemeral: true});
       
 		interaction.channel.bulkDelete(count + 1)
     		    let guilld = client.guilds.cache.get('930503731974385694');

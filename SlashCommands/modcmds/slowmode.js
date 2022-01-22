@@ -27,12 +27,12 @@ module.exports = {
     let logch = guilld.channels.cache.get('931558609194737786')
       const time = interaction.options.getInteger('time')
 
-		 if (time > 21600) return interaction.followUp({content: "Error: maximum time is 21600 seconds (6 hours)", ephemeral: true});
-     if (time < 0) return interaction.followUp({content: "Error: minimum time is 0 seconds.", ephemeral: true});
+		 if (time > 21600) return interaction.deferReply({content: "Error: maximum time is 21600 seconds (6 hours)", ephemeral: true});
+     if (time < 0) return interaction.deferReply({content: "Error: minimum time is 0 seconds.", ephemeral: true});
       if (time === 0){
-interaction.followUp({content: "Slowmode has been disabled."})
+interaction.deferReply({content: "Slowmode has been disabled."})
       }  else {
-      interaction.followUp({content: `Slowmode has been set to \`${time}\` seconds.`})
+      interaction.deferReply({content: `Slowmode has been set to \`${time}\` seconds.`})
       }
 		interaction.channel.setRateLimitPerUser(time)
 		

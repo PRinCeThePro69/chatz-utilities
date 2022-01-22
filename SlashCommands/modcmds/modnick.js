@@ -51,7 +51,7 @@ module.exports = {
         
 
  user.setNickname(nick)
- interaction.followUp({embeds: [succuss]})
+ interaction.deferReply({embeds: [succuss]})
  logch.send({embeds: [log]})
 
 

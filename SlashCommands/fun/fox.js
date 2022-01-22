@@ -13,7 +13,7 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
          if (talkedRecently.has(interaction.member.id)) {
-            interaction.followUp("Slow down!\nPlease wait 15 seconds before getting another fox");
+            interaction.deferReply("Slow down!\nPlease wait 15 seconds before getting another fox");
     } else {
    const { get } = require("axios")
 	 get("https://randomfox.ca/floof/", {
@@ -26,7 +26,7 @@ module.exports = {
 		 .setDescription("Got your fox")
 		 .setImage(response.data.image)
 
-		 interaction.followUp({
+		 interaction.deferReply({
 			 embeds: [e]
 		 })
 	 })

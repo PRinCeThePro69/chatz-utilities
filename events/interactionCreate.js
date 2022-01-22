@@ -14,7 +14,7 @@ client.on("interactionCreate", async (interaction) => {
 if(!interaction.guild) return interaction.reply('You can\'t use cmds in DMs.')
         const cmd = client.slashCommands.get(interaction.commandName);
         if (!cmd)
-            return interaction.followUp({ content: "An error has occured", ephemeral: true });
+            return interaction.deferReply({ content: "An error has occured", ephemeral: true });
 
         const args = [];
 

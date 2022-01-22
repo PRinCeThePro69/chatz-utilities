@@ -51,8 +51,8 @@ module.exports = {
         const target = interaction.options.getMember('user')
         const reason = interaction.options.getString('reason')
       
-      if(target.id === interaction.user.id) return interaction.followUp({content: 'You can\'t kick yourself.'})
-   if(target.id === client.user.id) return interaction.followUp({content: 'You can\'t kick me.'})
+      if(target.id === interaction.user.id) return interaction.deferReply({content: 'You can\'t kick yourself.'})
+   if(target.id === client.user.id) return interaction.deferReply({content: 'You can\'t kick me.'})
         const successful = new MessageEmbed()
         .setColor('GREEN')
         .setDescription(`:white_check_mark: ${target} has been successfully **kicked**. | \`${kickId}\``)
@@ -94,7 +94,7 @@ await target.kick(reason).catch((e) => {
 
      }).save();
  
-     interaction.followUp({embeds: [successful]})
+     interaction.deferReply({embeds: [successful]})
      logch.send({embeds: [log]})
    
 }

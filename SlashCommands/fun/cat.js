@@ -13,7 +13,7 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
          if (talkedRecently.has(interaction.member.id)) {
-            interaction.followUp("Slow down!\nPlease wait 15 seconds before getting another cat");
+            interaction.deferReply("Slow down!\nPlease wait 15 seconds before getting another cat");
     } else {
    const { get } = require("axios")
 	 get("https://aws.random.cat/meow", {
@@ -26,7 +26,7 @@ module.exports = {
 		 .setDescription("Got your cat")
 		 .setImage(response.data.file)
 
-		 interaction.followUp({
+		 interaction.deferReply({
 			 embeds: [e]
 		 })
 	 })
