@@ -17,7 +17,7 @@ client.on('guildMemberAdd', (mem) => {
  
        let guilld = client.guilds.cache.get('930503731974385694');
     let general = guilld.channels.cache.get('930503731974385697')
-      var testContent = msg.content;
+  
      
 		
            const gc = new MessageEmbed()

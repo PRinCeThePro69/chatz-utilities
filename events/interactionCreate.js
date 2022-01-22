@@ -10,7 +10,7 @@ client.on("interactionCreate", async (interaction) => {
     // Slash Command Handling
     if (interaction.isCommand()) {
       
-        await interaction.deferReply({ ephemeral: false }).catch(() => {});
+        // await interaction.deferReply({ ephemeral: false }).catch(() => {});
 if(!interaction.guild) return interaction.reply('You can\'t use cmds in DMs.')
         const cmd = client.slashCommands.get(interaction.commandName);
         if (!cmd)
