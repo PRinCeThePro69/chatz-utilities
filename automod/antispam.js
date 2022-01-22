@@ -1,19 +1,12 @@
 const { MessageEmbed } = require('discord.js')
-
-
-  
 module.exports = (client) => {
-
 const usersMap = new Map();
-const LIMIT = 5;
+const LIMIT = 3;
 const DIFF = 5000;
-
 client.on('message', async message => {
-   
   let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
     if(message.author.bot || !message.guild) return;
-    
     if(usersMap.has(message.author.id)) {
         const userData = usersMap.get(message.author.id);
         const { lastMessage, timer } = userData;
@@ -26,15 +19,15 @@ client.on('message', async message => {
             userData.timer = setTimeout(() => {
                 usersMap.delete(message.author.id);
                 console.log('Removed from map.')
-            }, DIFF); //brug // copy pasted, idk how to fix, looking into it
+            }, DIFF); 
             usersMap.set(message.author.id, userData)
         }
         else {
             ++msgCount;
             if(parseInt(msgCount) === LIMIT) {
-                     const e = new MessageEmbed()
+         const e = new MessageEmbed()
         .setColor('RED')
-				.setDescription(`${message.author} has been muted for spamming.`)
+	.setDescription(`${message.author} has been muted for spamming.`)
          const log = new MessageEmbed()
         .setTitle('New Mute!')
         .setColor('RED')
@@ -44,9 +37,8 @@ client.on('message', async message => {
         .setTimestamp()
                message.channel.send({embeds: [e]});
               message.channel.bulkDelete(LIMIT);
-							message.member.timeout(180 * 60 * 1000, '[Automod] Spam').catch((e) => console.log(e))
+	       message.member.timeout(180 * 60 * 1000, '[Automod] Spam').catch((e) => console.log(e))
               logch.send({embeds: [log]})
-             
                var yougotmuted = new MessageEmbed()
                 .setColor('RED')
                 .setTitle(`You have been muted in ${message.guild.name}`)
@@ -56,7 +48,6 @@ client.on('message', async message => {
                     message.author.send({embeds: [yougotmuted]}).catch((e) => {
                       console.log(e)
                     })
-               
             } else {
                 userData.msgCount = msgCount;
                 usersMap.set(message.author.id, userData);
@@ -74,14 +65,4 @@ client.on('message', async message => {
         });
     }
 })
-
-
-
-
-
-
-
-
-
-
 }
