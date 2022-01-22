@@ -41,7 +41,7 @@ module.exports = {
 					.setTitle(`Results of portcheck - ${ip}:${port}`)
 					.setDescription(`Port ${port} is ${open} on ${ip}`)
 
-					interaction.deferReply({
+					interaction.reply({
 						embeds: [e]
 					})
 				})

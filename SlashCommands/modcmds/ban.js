@@ -52,8 +52,8 @@ module.exports = {
         const target = interaction.options.getMember('user')
         const reason = interaction.options.getString('reason')
       
-      if(target.id === interaction.user.id) return interaction.deferReply({content: 'You can\'t ban yourself.'})
-   if(target.id === client.user.id) return interaction.deferReply({content: 'You can\'t ban me.'})
+      if(target.id === interaction.user.id) return interaction.reply({content: 'You can\'t ban yourself.'})
+   if(target.id === client.user.id) return interaction.reply({content: 'You can\'t ban me.'})
         const successful = new MessageEmbed()
         .setColor('GREEN')
         .setDescription(`:white_check_mark: ${target} has been successfully **banned**. | \`${banId}\``)
@@ -95,7 +95,7 @@ await target.ban({reason}).catch((e) => {
 
      }).save();
  
-     interaction.deferReply({embeds: [successful]})
+     interaction.reply({embeds: [successful]})
      logch.send({embeds: [log]})
    
 }

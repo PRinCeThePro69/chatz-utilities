@@ -12,6 +12,6 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, interaction, args) => {
-        interaction.deferReply({ content: `${client.ws.ping}ms!` });
+        interaction.reply({ content: `${client.ws.ping}ms!` });
     },
 };

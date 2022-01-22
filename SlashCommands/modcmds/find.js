@@ -27,7 +27,7 @@ module.exports = {
       
 
     const warnId = interaction.options.getString('id')
-		if (isNaN(warnId)) return interaction.deferReply("Input a number.")
+		if (isNaN(warnId)) return interaction.reply("Input a number.")
       const succuss = new MessageEmbed()
         .setColor('GREEN')
         .setDescription(`:white_check_mark: The warn with ID: \`${warnId}\` has been deleted.`)
@@ -40,9 +40,9 @@ module.exports = {
         console.log(err)
       });
 
-if(!data) return interaction.deferReply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
-        if(data < 12) return interaction.deferReply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
-        if(data > 24) return interaction.deferReply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
+if(!data) return interaction.reply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
+        if(data < 12) return interaction.reply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
+        if(data > 24) return interaction.reply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
      const embedDesc = data.map((warn) => {
        
         const moderator = interaction.guild.members.cache.get(warn.staffId);
@@ -64,6 +64,6 @@ const rep = new MessageEmbed()
     .setColor('RANDOM')
     .setDescription(embedDesc)
    
- interaction.deferReply({embeds: [rep]})
+ interaction.reply({embeds: [rep]})
 }
 } 

@@ -52,8 +52,8 @@ module.exports = {
 const muteId = makeid(16)
        const timeInMs = ms(length)
        
-			        if (user === client.user) return interaction.deferReply({content: "You cant mute me", ephemeral: true})
-			 if (mem === interaction.member) return interaction.deferReply({content: "You cant mute yourself", ephemeral: true})
+			        if (user === client.user) return interaction.reply({content: "You cant mute me", ephemeral: true})
+			 if (mem === interaction.member) return interaction.reply({content: "You cant mute yourself", ephemeral: true})
 
        mem.timeout(timeInMs, `[${interaction.user.username}] ${reason}`)
 
@@ -73,7 +73,7 @@ const muteId = makeid(16)
        const succ = new MessageEmbed()
        .setColor('GREEN')
        .setDescription(`:white_check_mark: Successfully timed out ${user}! || \`${muteId}\``)
-       interaction.deferReply({embeds: [succ]})
+       interaction.reply({embeds: [succ]})
 			  const log = new MessageEmbed()
         .setTitle('New Timeout!')
         .setColor('RED')

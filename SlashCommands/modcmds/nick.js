@@ -64,10 +64,10 @@ module.exports = {
         .setTimestamp()
 if(nick === '0') { 
   user.setNickname(null)
-interaction.deferReply({embeds: [reset]})
+interaction.reply({embeds: [reset]})
  logch.send({embeds: [rlog]})
 } else { user.setNickname(nick)
- interaction.deferReply({embeds: [succuss]})
+ interaction.reply({embeds: [succuss]})
  logch.send({embeds: [log]})}
 
 

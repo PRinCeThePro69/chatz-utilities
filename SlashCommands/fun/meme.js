@@ -13,7 +13,7 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
          if (talkedRecently.has(interaction.member.id)) {
-            interaction.deferReply("Slow down!\nPlease wait 30 seconds before getting another meme");
+            interaction.reply("Slow down!\nPlease wait 30 seconds before getting another meme");
     } else {
    const { get } = require("axios")
 	 get("https://some-random-api.ml/meme", {
@@ -26,7 +26,7 @@ module.exports = {
 		 .setDescription("Got your meme")
 		 .setImage(response.data.image)
 
-		 interaction.deferReply({
+		 interaction.reply({
 			 embeds: [e]
 		 })
 	 })

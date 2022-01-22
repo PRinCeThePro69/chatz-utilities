@@ -34,13 +34,13 @@ module.exports = {
      
         .setTimestamp()
 
-if (!channel.permissionsFor('931470565074673714').has('SEND_MESSAGES') === false) {interaction.deferReply("The channel is already unlocked.")
+if (!channel.permissionsFor('931470565074673714').has('SEND_MESSAGES') === false) {interaction.reply("The channel is already unlocked.")
  // otherwise, unlock it
  } else{ channel.permissionOverwrites.edit('931470565074673714', { VIEW_CHANNEL: true,
     SEND_MESSAGES: null,
     READ_MESSAGE_HISTORY: true,
      ADD_REACTIONS: null} );
-   interaction.deferReply(`Channel unlocked`)
+   interaction.reply(`Channel unlocked`)
    channel.send(':unlock: The channel has been unlocked, you can chat again.')
    };
 },

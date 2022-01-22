@@ -87,7 +87,7 @@ module.exports = {
 
      }).save();
  
-     interaction.deferReplys({embeds: [successful]})
+     interaction.reply({embeds: [successful]})
      logch.send({embeds: [wlog]})
      target.send({embeds: [dm]}).catch((e) => {
        console.log(e)

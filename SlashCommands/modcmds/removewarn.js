@@ -28,7 +28,7 @@ module.exports = {
     let logch = guilld.channels.cache.get('931558609194737786')
 
     const warnId = interaction.options.getString('id')
-		if (isNaN(warnId)) return interaction.deferReply("Input a number")
+		if (isNaN(warnId)) return interaction.reply("Input a number")
       const succuss = new MessageEmbed()
         .setColor('GREEN')
         .setDescription(`:white_check_mark: The warn with ID: \`${warnId}\` has been deleted.`)
@@ -50,15 +50,15 @@ module.exports = {
         .addField('Moderator', `${interaction.member}`)
         .setFooter('Punishment ID:' + `${warnId}`)
         .setTimestamp()
-if(!data) return interaction.deferReply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
-        if(data < 12) return interaction.deferReply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
-        if(data > 24) return interaction.deferReply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
+if(!data) return interaction.reply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
+        if(data < 12) return interaction.reply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
+        if(data > 24) return interaction.reply({content: `\`${warnId}\` is not a valid Id!`, ephemeral: true});
       await  data.delete().catch(() => {
        
         console.error
       })
       
-      interaction.deferReply({embeds: [succuss]})
+      interaction.reply({embeds: [succuss]})
       logch.send({embeds: [log]})
 
  

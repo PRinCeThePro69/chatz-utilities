@@ -53,8 +53,8 @@ module.exports = {
         const target = interaction.options.getString('userid')
         const reason = interaction.options.getString('reason')
       const targetuser = client.users.cache.get(`${target}`)
-      if(target === interaction.user.id) return interaction.folldeferReplyowUp({content: 'You can\'t unban yourself.'})
-   if(target === client.user.id) return interaction.deferReply({content: 'You can\'t unban me smh.'})
+      if(target === interaction.user.id) return interaction.reply({content: 'You can\'t unban yourself.'})
+   if(target === client.user.id) return interaction.reply({content: 'You can\'t unban me smh.'})
         
     
       
@@ -86,12 +86,12 @@ const successful = new MessageEmbed()
 
      }).save();
  
-     interaction.deferReply({embeds: [successful]})
+     interaction.reply({embeds: [successful]})
      logch.send({embeds: [log]})
   
 }).catch((e) => {
   console.log(e)
-      interaction.deferReply({content: 'Specify a valid banned members ID.'})
+      interaction.reply({content: 'Specify a valid banned members ID.'})
     })
 
    

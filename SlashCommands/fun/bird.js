@@ -13,7 +13,7 @@ module.exports = {
      */
     run: async (client, interaction, args) => {
          if (talkedRecently.has(interaction.member.id)) {
-            interaction.deferReply("Slow down!\nPlease wait 15 seconds before getting another bird");
+            interaction.reply("Slow down!\nPlease wait 15 seconds before getting another bird");
     } else {
    const { get } = require("axios")
 	 get("https://some-random-api.ml/animal/birb", {
@@ -26,7 +26,7 @@ module.exports = {
 		 .setDescription("Got your bird")
 		 .setImage(response.data.image)
 
-		 interaction.deferReply({
+		 interaction.reply({
 			 embeds: [e]
 		 })
 	 })

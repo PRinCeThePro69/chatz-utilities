@@ -27,7 +27,7 @@ module.exports = {
             .setColor('RANDOM')
             .setTitle(`${response.data.query} - IP info`)
             .setDescription(`Country: ${response.data.countryCode}/${response.data.country}\nRegion: ${response.data.regionName}, ${response.data.city}\nTimezone: ${response.data.timezone}\nISP: ${response.data.isp}\nASN: ${response.data.as}\nProxy: ${response.data.proxy}\nCellular: ${response.data.mobile}\nData center: ${response.data.hosting}`)
-            interaction.deferReply({embeds: [e]})
+            interaction.reply({embeds: [e]})
           })
     },
 };
