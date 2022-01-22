@@ -31,7 +31,7 @@ module.exports = (client) => {
 				})
         msg.member.timeout(360 * 60 * 1000, '[Automod] Pinging too many people').catch((e) => console.log(e))
         logch.send({embeds: [log]})
-        msg.delete().catch((e))
+  
           try {
  var yougotmuted = new MessageEmbed()
                 .setColor('RED')
