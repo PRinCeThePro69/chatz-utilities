@@ -6,7 +6,7 @@ const client = new Client({
 });
 module.exports = client;
 client.commands = new Collection();
-client.slashCommands = new Collection();
+
 require("./handler")(client);
 const antiAd = require('./automod/anti-ad')
 const badwords = require('./automod/badwords')

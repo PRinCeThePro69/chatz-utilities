@@ -22,7 +22,7 @@ module.exports = {
 
       const ip = interaction.options.getString('ip')
         axios.get(`http://ip-api.com/json/${ip}?fields=status,message,country,countryCode,region,regionName,city,timezone,isp,as,mobile,proxy,hosting,query`) .then(function (response) {
-            if (response.data.message) return interaction.followUp(`An error occoured, error: ${response.data.message}`)
+            if (response.data.message) return interaction.reply(`An error occoured, error: ${response.data.message}`)
             const e = new MessageEmbed()
             .setColor('RANDOM')
             .setTitle(`${response.data.query} - IP info`)
