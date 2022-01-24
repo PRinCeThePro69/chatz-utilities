@@ -6,7 +6,7 @@ const warnSchema = require('../../models/punishments')
 module.exports = {
     name: "modnick",
     description: "Change a user's nickname to a random name.",
-    userPermissions: ['MANAGE_NICKNAMES'],
+    userPermissions: 'MANAGE_NICKNAMES',
 		options: [
       {
         name: 'user',

@@ -5,7 +5,7 @@ const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "slowmode",
     description: "Sets the slowmode of a current channel",
-    userPermissions: ['MANAGE_MESSAGES'],
+    userPermissions: 'MANAGE_MESSAGES',
     options: [
       {
         name: 'time',

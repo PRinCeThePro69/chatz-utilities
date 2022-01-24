@@ -3,7 +3,7 @@ const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "lock",
     description: "Locks the provided channel. Locks current if none provided.",
-    userPermissions: ['MANAGE_MESSAGES'],
+    userPermissions: 'MANAGE_MESSAGES',
     options: [
       {
         name: 'channel',

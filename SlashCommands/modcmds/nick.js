@@ -6,7 +6,7 @@ const warnSchema = require('../../models/punishments')
 module.exports = {
     name: "nick",
     description: "Change a user's nickname to the name requested by a user.",
-    userPermissions: ['MANAGE_NICKNAMES'],
+    userPermissions: 'MANAGE_NICKNAMES',
 		options: [
       {
         name: 'user',

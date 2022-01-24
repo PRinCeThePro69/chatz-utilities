@@ -1,60 +1,81 @@
 const { glob } = require("glob");
+const { Perms } = require('../validation/perms')
 const { promisify } = require("util");
 const { Client } = require("discord.js");
 const mongoose = require("mongoose");
-const globPromise = promisify(glob);
+const PG = promisify(glob);
+const Ascii = require("ascii-table")
 /**
  * @param {Client} client
  */
 module.exports = async (client) => {
-    const eventFiles = await globPromise(`${process.cwd()}/events/*.js`);
+  
+    const eventFiles = await PG(`${process.cwd()}/events/*.js`);
     eventFiles.map((value) => require(value));
-    const slashCommands = await globPromise(
+
+    const Table = new Ascii("Command Loaded")
+    const CommandsArray = [];
+    (await PG(
         `${process.cwd()}/SlashCommands/*/*.js`
-    );
-    const arrayOfSlashCommands = [];
-    slashCommands.map((value) => {
-        const file = require(value);
-        if (!file?.name) return;
-        client.slashCommands.set(file.name, file);
-        if (["MESSAGE", "USER"].includes(file.type)) delete file.description;
-        if(file.userPermissions) file.defaultPermission = false;
-        arrayOfSlashCommands.push(file);
+    )).map( async (file) => {
+      const command = require(file);
+        if (!command.name) return Table.addRow(file.split("/")[7], "❌ Failed", "Missing a name.");
+        if (!command.description) return Table.addRow(command.name, "❌ Failed", "Missing a description.");
+        if (command.userPermissions) {
+            if (Perms.includes(command.userPermissions))
+                command.defaultPermission = false;
+                else
+                return Table.addRow(command.name, "❌ Failed", "Invalid permissions supplied!")
+
+        }
+
+
+
+        client.commands.set(command.name, command);
+        
+        
+        CommandsArray.push(command);
+
+        await Table.addRow(command.name, "✔️ Successful")
     });
+    console.log(Table.toString());
+
+
     client.on("ready", async () => {
-        const guild = client.guilds.cache
+        const MainGuild = client.guilds.cache
         .get("930503731974385694")
-        await guild.commands.set(arrayOfSlashCommands).then((cmd) => {
-            const getRoles = (commandName) => {
-                const permissions = arrayOfSlashCommands.find(x => x.name === commandName).userPermissions;
-                if(!permissions) return null;
-                return guild.roles.cache.filter(x => x.permissions.has(permissions) && !x.managed);
+         MainGuild.commands.set(CommandsArray).then(async(command) => {
+            const Roles = (commandName) => {
+                const cmdPerms = CommandsArray.find((c) => c.name === commandName).userPermissions;
+                if(!cmdPerms) return null;
+                return MainGuild.roles.cache.filter(r => r.permissions.has(cmdPerms));
             };
-            const fullPermissions = cmd.reduce((accumulator, x) => {
-                const roles = getRoles(x.name)
+            const fullPermissions = command.reduce((accumulator, r) => {
+                const roles = Roles(r.name)
                 if(!roles) return accumulator;
-                const permissions = roles.reduce((a, v) => {
+
+                const permissions = roles.reduce((a, r) => {
                     return [
                         ...a,
                         {
-                            id: v.id,
+                            id: r.id,
                             type: "ROLE",
                             permission: true,
                         }
                     ]
-                }, []);
+                }, [])
                 return [
                     ...accumulator,
                     {
-                        id: x.id,
+                        id: r.id,
                         permissions,
                     }
                 ]
             }, []);
-            guild.commands.permissions.set({ fullPermissions })
+          await  MainGuild.commands.permissions.set({ fullPermissions })
         });
     });
     const mongooseConnectionString = process.env.mongo
     if (!mongooseConnectionString) return;
-    mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
+     mongoose.connect(mongooseConnectionString).then(() => console.log('Connected to mongodb'));
 };

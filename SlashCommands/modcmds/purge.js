@@ -5,7 +5,7 @@ const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "purge",
     description: "Clears a number of messages from a channel.",
-    userPermissions: ['MANAGE_MESSAGES'],
+    userPermissions: 'MANAGE_MESSAGES',
     options: [
       {
         name: 'count',

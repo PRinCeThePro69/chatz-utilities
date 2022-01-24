@@ -14,7 +14,7 @@ function makeid(length) {
 module.exports = {
     name: "unban",
     description: "Unbans a banned user.",
-    userPermissions: ['BAN_MEMBERS'],
+    userPermissions: 'BAN_MEMBERS',
 		options: [
       {
         name: 'userid',

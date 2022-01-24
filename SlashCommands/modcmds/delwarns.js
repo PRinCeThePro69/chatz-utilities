@@ -6,7 +6,7 @@ const warnSchema = require('../../models/punishments')
 module.exports = {
     name: "delwarns",
     description: "Remove all of the warns from a user.",
-    userPermissions: ['ADMINISTRATOR'],
+    userPermissions: 'ADMINISTRATOR',
 		options: [
       {
         name: 'user',

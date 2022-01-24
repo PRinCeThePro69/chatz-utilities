@@ -3,7 +3,7 @@ const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "unlock",
     description: "Locks the provided channel. Locks current if none provided.",
-    userPermissions: ['ADMINISTRATOR'],
+    userPermissions: 'ADMINISTRATOR',
     options: [
       {
         name: 'channel',

@@ -4,7 +4,7 @@ const ms = require('ms')
 module.exports = {
     name: "rem-timeout",
     description: "Remmoves timeout from a user if the user is timed out.",
-    userPermissions: ['MODERATE_MEMBERS'],
+    userPermissions: 'MODERATE_MEMBERS',
 		options: [
       {
         name: 'user',

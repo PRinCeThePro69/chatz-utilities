@@ -6,7 +6,7 @@ const warnSchema = require('../../models/punishments')
 module.exports = {
     name: "checkwarns",
     description: "Check another users warning.",
-    userPermissions: ['MANAGE_MESSAGES'],
+    userPermissions: 'MANAGE_MESSAGES',
 		options: [
       {
         name: 'user',

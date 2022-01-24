@@ -14,7 +14,7 @@ function makeid(length) {
 module.exports = {
     name: "timeout",
     description: "Times a user out for a specified amount of time.",
-    userPermissions: ['MODERATE_MEMBERS'],
+    userPermissions: 'MODERATE_MEMBERS',
 		options: [
       {
         name: 'user',

@@ -14,7 +14,7 @@ function makeid(length) {
 module.exports = {
     name: "warn",
     description: "Warns a user for breaking rules.",
-    userPermissions: ['MANAGE_MESSAGES'],
+    userPermissions: 'MANAGE_MESSAGES',
 		options: [
       {
         name: 'user',
@@ -87,7 +87,7 @@ module.exports = {
 
      }).save();
  
-     interaction.reply({embeds: [successful]})
+     interaction?.reply({embeds: [successful]})
      logch.send({embeds: [wlog]})
      target.send({embeds: [dm]}).catch((e) => {
        console.log(e)
