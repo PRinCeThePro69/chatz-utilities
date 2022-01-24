@@ -35,7 +35,7 @@ if(!interaction.guild) return interaction.reply('You can\'t use cmds in DMs.')
     // Context Menu Handling
     if (interaction.isContextMenu()) {
         await interaction.deferReply({ ephemeral: false });
-        const command = client.slashCommands.get(interaction.commandName);
+        const command = client.commands.get(interaction.commandName);
         if (command) command.run(client, interaction);
 				
     }
