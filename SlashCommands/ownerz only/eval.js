@@ -21,7 +21,7 @@ module.exports = {
     run: async (client, interaction, args) => {
        
       const code = interaction.options.getString('code')
-
+        interaction.deferReply().then(m => m.delete())
             function clean(text) {
                 if (typeof(text) === "string")
                   return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -35,9 +35,9 @@ module.exports = {
               if (typeof evaled !== "string")
                 evaled = require("util").inspect(evaled);
         
-             // msg.channel.send(clean(evaled), {code:"xl"});
+              interaction.channel.send(clean(evaled), {code:"xl"});
             } catch (err) {
-              msg.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+              interaction.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
             }
     },
 };
