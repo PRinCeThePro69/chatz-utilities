@@ -5,11 +5,18 @@ const { Client } = require("discord.js");
 const mongoose = require("mongoose");
 const PG = promisify(glob);
 const Ascii = require("ascii-table")
+
+
+
 /**
  * @param {Client} client
  */
 module.exports = async (client) => {
-  
+    const MainGuild = client.guilds.cache
+.get("930503731974385694")
+    const evalcmd = await MainGuild.commands.fetch('935441500303675402');
+    evalcmd.defaultPermission = false;
+
     const eventFiles = await PG(`${process.cwd()}/events/*.js`);
     eventFiles.map((value) => require(value));
 
@@ -19,6 +26,7 @@ module.exports = async (client) => {
         `${process.cwd()}/SlashCommands/*/*.js`
     )).map( async (file) => {
       const command = require(file);
+
         if (!command.name) return Table.addRow(file.split("/")[7], "❌ Failed", "Missing a name.");
         if (!command.description) return Table.addRow(command.name, "❌ Failed", "Missing a description.");
         if (command.userPermissions) {
@@ -42,8 +50,7 @@ module.exports = async (client) => {
 
 
     client.on("ready", async () => {
-        const MainGuild = client.guilds.cache
-        .get("930503731974385694")
+       
          MainGuild.commands.set(CommandsArray).then(async(command) => {
             const Roles = (commandName) => {
                 const cmdPerms = CommandsArray.find((c) => c.name === commandName).userPermissions;
@@ -73,9 +80,9 @@ module.exports = async (client) => {
                 ]
             }, []);
           await  MainGuild.commands.permissions.set({ fullPermissions })
-          const evalcmd = await MainGuild.commands.fetch('935441500303675402');
           
-          evalcmd.defaultPermission = false
+          
+    
           const ownerperms = [
               {
                   id: '593696963061481532',
