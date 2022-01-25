@@ -36,7 +36,7 @@ module.exports = async (client) => {
         
         CommandsArray.push(command);
 
-        await Table.addRow(command.name, "✔️ Successful")
+        await Table.addRow(command.name, "✅ Successful")
     });
     console.log(Table.toString());
 
