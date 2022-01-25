@@ -11,15 +11,15 @@ const prefix = '>'
 
 client.on("messageCreate", async (msg) => {
     const args = msg.content.slice(prefix.length).trim().split(' ');
-    const code = args.join(" ");
+    
    
     if(msg.content.startsWith('>eval')) {
         if(msg.member.id !== '689173890450194434' && msg.member.id !== '593696963061481532' ) return msg.delete();
-        if(!code) return msg?.delete()
+      
         const args = msg.content.slice(prefix.length).trim().split(' ');
         args.shift()
-    
-    
+        const code = args.join(" ");
+        if(!code) return msg?.delete()
             msg.delete()
             function clean(text) {
                 if (typeof(text) === "string")
