@@ -33,12 +33,13 @@ module.exports = async (client) => {
                 return Table.addRow(command.name, "❌ Failed", "Invalid permissions supplied!")
 
         }
-
+        
 
 
         client.commands.set(command.name, command);
        
-         
+        const evalcmd = await client.commands.fetch('935441500303675402');
+        evalcmd.defaultPermission = false;
         
         CommandsArray.push(command);
       
@@ -52,8 +53,7 @@ module.exports = async (client) => {
         .get("930503731974385694")
             
          MainGuild.commands.set(CommandsArray).then(async(command) => {
-            const evalcmd = await MainGuild.commands.fetch('935441500303675402');
-            evalcmd.defaultPermission = false;
+            
             const Roles = (commandName) => {
                 const cmdPerms = CommandsArray.find((c) => c.name === commandName).userPermissions;
                 if(!cmdPerms) return null;
