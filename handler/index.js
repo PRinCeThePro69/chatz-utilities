@@ -38,8 +38,8 @@ module.exports = async (client) => {
 
         client.commands.set(command.name, command);
        
-        const evalcmd = await client.commands.find(c => c.name === 'eval');
-        evalcmd.defaultPermission = false;
+        // const evalcmd = await client.commands.find(c => c.name === 'eval');
+        // evalcmd.defaultPermission = false;
         
         CommandsArray.push(command);
       
@@ -85,20 +85,20 @@ module.exports = async (client) => {
           
           
     
-          const ownerperms = [
-              {
-                  id: '593696963061481532',
-                  type: 'USER',
-                  permission: true,
-              },
-              {
-                  id: '689173890450194434',
-                  type: 'USER',
-                  permission: true,
-              }
-          ];
+//           const ownerperms = [
+//               {
+//                   id: '593696963061481532',
+//                   type: 'USER',
+//                   permission: true,
+//               },
+//               {
+//                   id: '689173890450194434',
+//                   type: 'USER',
+//                   permission: true,
+//               }
+//           ];
           
-   await evalcmd.permissions.set({ permissions: ownerperms });
+//    await evalcmd.permissions.set({ permissions: ownerperms });
 
         });
     });
