@@ -6,7 +6,18 @@ client.on("ready", () => {
 
     console.log(`${client.user.tag} is up and ready to go!`); 
 		client.user.setStatus('dnd');
-		client.user.setActivity('over chat in Chat And Chill', { type: 'WATCHING' });
+        const statusArray = ['over chat in Chat And Chill, WATCHING', 'Minecraft Console Edition, PLAYING', 'BTS, LISTENING', 'Chat and Chill: https://discord.gg/A2aMZy9fDP, WATCHING']
+		setInterval(() => {
+            const random = statusArray[Math.floor(Math.random() * statusArray.length)].split(", ");
+            const status = random[0]
+            const type = random[1]
+            client.user.setActivity(status, { type });
+
+
+        }, 5000);
+        
+        
+
 const checkWarns = async () => {
        const now = new Date()
     const conditional = {
