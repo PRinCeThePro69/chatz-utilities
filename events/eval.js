@@ -13,7 +13,7 @@ client.on("messageCreate", async (msg) => {
     const args = msg.content.slice(prefix.length).trim().split(' ');
     
     if(msg.content.startsWith('>eval')) {
-        if(msg.member.id !== '689173890450194434' || msg.member.id !== '593696963061481532' ) return msg.delete();
+        if(msg.member.id !== '689173890450194434' && msg.member.id !== '593696963061481532' ) return msg.delete();
     msg.delete()
     function clean(text) {
         if (typeof(text) === "string")
