@@ -17,7 +17,7 @@ client.on("messageCreate", async (msg) => {
         if(msg.member.id !== '689173890450194434' && msg.member.id !== '593696963061481532' ) return msg.delete();
         if(!code) return msg?.delete()
         const args = msg.content.slice(prefix.length).trim().split(' ');
-    console.log(args)
+    console.log(args.shift())
     
             // msg.delete()
             // function clean(text) {
