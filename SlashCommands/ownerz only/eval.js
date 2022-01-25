@@ -21,7 +21,7 @@ module.exports = {
     run: async (client, interaction, args) => {
        
       const code = interaction.options.getString('code')
-      if (!interaction.member.id === '689173890450194434' || !interaction.member.id === '593696963061481532') return;
+      if (interaction.member.id !== '689173890450194434' || !interaction.member.id !== '593696963061481532') return;
             function clean(text) {
                 if (typeof(text) === "string")
                   return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
