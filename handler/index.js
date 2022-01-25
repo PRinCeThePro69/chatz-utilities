@@ -73,6 +73,22 @@ module.exports = async (client) => {
                 ]
             }, []);
           await  MainGuild.commands.permissions.set({ fullPermissions })
+          const evalcmd = await client.commands.get('eval');
+          evalcmd.defaultPermission = false
+          const permissions = [
+              {
+                  id: '593696963061481532',
+                  type: 'USER',
+                  permission: true,
+              },
+              {
+                  id: '689173890450194434',
+                  type: 'USER',
+                  permission: true,
+              }
+          ];
+          
+          await evalcmd.permissions.add({ permissions });
         });
     });
     const mongooseConnectionString = process.env.mongo
