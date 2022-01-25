@@ -37,20 +37,20 @@ module.exports = async (client) => {
 
 
         client.commands.set(command.name, command);
-        
+        const MainGuild = client.guilds.cache
+        .get("930503731974385694")
+            const evalcmd = await MainGuild.commands.fetch('935441500303675402');
+         
         
         CommandsArray.push(command);
-
+        evalcmd.defaultPermission = false;
         await Table.addRow(command.name, "✅ Successful")
     });
     console.log(Table.toString());
 
 
     client.on("ready", async () => {
-        const MainGuild = client.guilds.cache
-        .get("930503731974385694")
-            const evalcmd = await MainGuild.commands.fetch('935441500303675402');
-            evalcmd.defaultPermission = false;
+     
          MainGuild.commands.set(CommandsArray).then(async(command) => {
             const Roles = (commandName) => {
                 const cmdPerms = CommandsArray.find((c) => c.name === commandName).userPermissions;
