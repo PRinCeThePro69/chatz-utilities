@@ -38,7 +38,7 @@ module.exports = async (client) => {
 
         client.commands.set(command.name, command);
        
-        const evalcmd = await client.commands.fetch('935441500303675402');
+        const evalcmd = await client.commands.find('935441500303675402');
         evalcmd.defaultPermission = false;
         
         CommandsArray.push(command);
