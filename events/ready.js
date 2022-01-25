@@ -14,7 +14,7 @@ client.on("ready", () => {
             client.user.setActivity(status, { type });
 
 
-        }, 5000);
+        }, 45000);
         
         
 

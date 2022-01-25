@@ -1,0 +1,36 @@
+const client = require("../index");
+const {
+    Client,
+    Collection,
+    MessageEmbed,
+    MessageActionRow,
+    MessageButton
+} = require("discord.js");
+
+const prefix = '>'
+
+client.on("messageCreate", async (msg) => {
+    const args = msg.content.slice(prefix.length).trim().split(' ');
+    
+    if(msg.content.startsWith('>eval')) {
+    msg.delete()
+    function clean(text) {
+        if (typeof(text) === "string")
+          return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+        else
+            return text;
+      }
+    try {
+      const code = args.join(" ");
+      let evaled = eval(code);
+
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
+
+      msg.channel.send(clean(evaled), {code:"xl"});
+    } catch (err) {
+      msg.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
+}
+});
+
