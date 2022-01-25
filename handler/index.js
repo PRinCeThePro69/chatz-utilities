@@ -89,7 +89,7 @@ module.exports = async (client) => {
               }
           ];
           
-   await evalcmd.permissions.set({ ownerperms });
+   await evalcmd.permissions.set({ permissions: ownerperms });
 
         });
     });
