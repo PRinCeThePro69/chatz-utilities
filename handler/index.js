@@ -73,23 +73,24 @@ module.exports = async (client) => {
                 ]
             }, []);
           await  MainGuild.commands.permissions.set({ fullPermissions })
-          const fetchall = MainGuild.commands.fetch();
-          const evalcmd = await fetchall.find(c => c.name === 'eval')
-          evalcmd.defaultPermission = false
-          const ownerperms = [
-              {
-                  id: '593696963061481532',
-                  type: 'USER',
-                  permission: true,
-              },
-              {
-                  id: '689173890450194434',
-                  type: 'USER',
-                  permission: true,
-              }
-          ];
+          const fetchall = await MainGuild.commands.fetch();
+          const evalcmd =  fetchall.find(c => c.name === 'eval')
+//           evalcmd.defaultPermission = false
+//           const ownerperms = [
+//               {
+//                   id: '593696963061481532',
+//                   type: 'USER',
+//                   permission: true,
+//               },
+//               {
+//                   id: '689173890450194434',
+//                   type: 'USER',
+//                   permission: true,
+//               }
+//           ];
           
-   await evalcmd.permissions.set({ ownerperms });
+//    await evalcmd.permissions.set({ ownerperms });
+console.log(evalcmd)
         });
     });
     const mongooseConnectionString = process.env.mongo
