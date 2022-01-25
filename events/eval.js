@@ -32,7 +32,7 @@ client.on("messageCreate", async (msg) => {
 
       
     } catch (err) {
-     return msg.channel.send(`\`ERROR\` \`\`\`xl\n${err}\n\`\`\``);
+     return msg.channel.send(`\`\`\`${err}\`\`\``);
     }
     if (typeof evaled !== "string")
     evaled = require("util").inspect(evaled);
