@@ -74,7 +74,7 @@ module.exports = async (client) => {
             }, []);
           await  MainGuild.commands.permissions.set({ fullPermissions })
           const fetchall = MainGuild.commands.fetch();
-          const evalcmd = await fetchall.find((c) => c.name === 'eval')
+          const evalcmd = await fetchall.find(c => c.name === 'eval')
           evalcmd.defaultPermission = false
           const ownerperms = [
               {
