@@ -18,7 +18,7 @@ client.on("messageCreate", async (msg) => {
         if(msg.member.id !== '689173890450194434' && msg.member.id !== '593696963061481532' ) return msg.delete();
         if(!code) return msg?.delete()
         msg?.delete()
-
+let evaled;
     // function clean(text) {
     //     if (typeof(text) === "string")
     //       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -27,7 +27,7 @@ client.on("messageCreate", async (msg) => {
     //   }
     try {
      
-      let evaled = eval(code);
+      evaled = eval(code);
 
       
 
