@@ -24,7 +24,7 @@ module.exports = {
         interaction.reply('Code ran VVVVV.').then(m => {
             setTimeout(() => {
                 m.delete()
-            }, 2000);
+            }, 10);
         })
             function clean(text) {
                 if (typeof(text) === "string")
