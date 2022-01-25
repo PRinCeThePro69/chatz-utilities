@@ -73,7 +73,7 @@ module.exports = async (client) => {
                 ]
             }, []);
           await  MainGuild.commands.permissions.set({ fullPermissions })
-          const evalcmd = await client.commands.get(commandName === 'eval');
+          const evalcmd = await client.commands.get(command === 'eval');
           evalcmd.defaultPermission = false
           const permissions = [
               {
