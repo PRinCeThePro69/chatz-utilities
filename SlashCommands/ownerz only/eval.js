@@ -2,11 +2,11 @@ const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "eval", //are there aliases?
-    description: "Check info about and IP",
+    description: "Run a code for the bot from discord. (Owner only)",
     options: [
       {
         name: 'code',
-        description: 'Run a code for the bot from discord. (Owner only)',
+        description: 'The code to run.',
         type: 'STRING',
         required: true,
       },
@@ -19,7 +19,7 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, interaction, args) => {
-        const command = await client.commands.get(this.name);
+        const command = await client.commands.get('code');
         command.defaultPermission = false
         const permissions = [
             {
