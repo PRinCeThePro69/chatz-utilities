@@ -21,7 +21,7 @@ module.exports = {
     run: async (client, interaction, args) => {
        
       const code = interaction.options.getString('code')
-        interaction.reply('Code.').then(m => m.deleteReply())
+        interaction.reply('Code.').then( interaction.deleteReply())
             function clean(text) {
                 if (typeof(text) === "string")
                   return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
