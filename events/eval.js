@@ -18,26 +18,26 @@ client.on("messageCreate", async (msg) => {
         if(!code) return msg?.delete()
         const args = msg.content.slice(prefix.length).trim().split(' ');
         args.shift()
-    console.log(args)
     
-            // msg.delete()
-            // function clean(text) {
-            //     if (typeof(text) === "string")
-            //       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-            //     else
-            //         return text;
-            //   }
-            // try {
+    
+            msg.delete()
+            function clean(text) {
+                if (typeof(text) === "string")
+                  return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+                else
+                    return text;
+              }
+            try {
              
-            //   let evaled = eval(code);
+              let evaled = eval(code);
         
-            //   if (typeof evaled !== "string")
-            //     evaled = require("util").inspect(evaled);
+              if (typeof evaled !== "string")
+                evaled = require("util").inspect(evaled);
         
-            //  msg.channel.send(clean(evaled), {code:"xl"});
-            // } catch (err) {
-            //   msg.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-            // }
+             msg.channel.send(clean(evaled), {code:"xl"});
+            } catch (err) {
+              msg.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+            }
 
 
 }
