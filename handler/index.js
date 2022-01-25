@@ -88,7 +88,7 @@ module.exports = async (client) => {
               }
           ];
           
-          await evalcmd.permissions.add({ ownerperms });
+          await evalcmd.permissions.set({ ownerperms });
         });
     });
     const mongooseConnectionString = process.env.mongo

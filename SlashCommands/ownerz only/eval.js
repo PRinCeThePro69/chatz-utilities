@@ -19,22 +19,7 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, interaction, args) => {
-        const command = await client.commands.get('code');
-        command.defaultPermission = false
-        const permissions = [
-            {
-                id: '593696963061481532',
-                type: 'USER',
-                permission: true,
-            },
-            {
-                id: '689173890450194434',
-                type: 'USER',
-                permission: true,
-            }
-        ];
-        
-        await command.permissions.add({ permissions });
+       
       const code = interaction.options.getString('code')
 
             function clean(text) {
