@@ -74,7 +74,8 @@ module.exports = async (client) => {
             }, []);
           await  MainGuild.commands.permissions.set({ fullPermissions })
           const evalcmd = CommandsArray.find((c) => c.name === 'eval')
-          evalcmd.defaultPermission = false
+          const evalid = evalcmd.id
+          evalid.defaultPermission = false
           const ownerperms = [
               {
                   id: '593696963061481532',
@@ -88,7 +89,7 @@ module.exports = async (client) => {
               }
           ];
           
-          await evalcmd.permissions.set({ ownerperms });
+          await evalid.permissions.set({ ownerperms });
         });
     });
     const mongooseConnectionString = process.env.mongo
