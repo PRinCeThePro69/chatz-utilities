@@ -21,9 +21,9 @@ module.exports = {
     run: async (client, interaction, args) => {
        
       const code = interaction.options.getString('code')
-        interaction.reply('Code ran VVVVV.').then(m => {
+        interaction.reply('Code ran VVVVV.').then(() => {
             setTimeout(() => {
-                m.delete()
+                interaction.deleteReply()
             }, 10);
         })
             function clean(text) {
