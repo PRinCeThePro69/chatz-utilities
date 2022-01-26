@@ -4,7 +4,7 @@ const warnSchema = require('../models/punishments')
 const autowarnSchema = require('../models/automodSchema')
 client.on("ready", () => {
 const members = client.guilds.cache.get('930503731974385694').memberCount
-    console.log(`${client.user.tag} is up and running and ready to go!`); 
+    console.log(`${client.user.tag} is Running!`); 
 		client.user.setStatus('dnd');
         const statusArray = ['over chat in Chat And Chill, WATCHING', 'Minecraft Console Edition, PLAYING', 'Chat And Chill, LISTENING', 'Chat and Chill: https://discord.gg/A2aMZy9fDP, WATCHING', `over ${members} members, WATCHING`, 'with my cool moderation, PLAYING', 'invite your friends!, LISTENING']
 		setInterval(() => {
