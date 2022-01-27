@@ -1,0 +1,62 @@
+const { MessageEmbed } = require('discord.js')
+const warnSchema = require('../models/automodSchema')
+
+  
+module.exports = (client) => {
+
+
+      client.on('messageCreate', msg => {
+          if (
+        msg.author.bot || !msg.guild) return;
+        let guilld = client.guilds.cache.get('930503731974385694');
+    let logch = guilld.channels.cache.get('931558609194737786')
+
+      if(msg.content.length >= 500) {
+		
+           const log = new MessageEmbed()
+        .setTitle('New Warn!')
+        .setColor('RED')
+        .addField('User', `${msg.author}`)
+        .addField('Reason', 'Sending too large messages in the server.')
+          .addField('Expires In', '1 hour')
+        .setTimestamp()
+          const e = new MessageEmbed()
+        .setColor('RED')
+				.setDescription(`${msg.author} You are not allowed to send too large in this server!`)
+        msg?.delete()
+        msg.channel.send({
+					embeds: [e]
+    
+          
+				})
+                new warnSchema({
+                    _id: warnId,
+                    userId: user.user.id,
+                    reason: '[AutoMod] Sending too large messages in the server.',
+                    timestamp: msg.createdTimestamp,
+                    expires
+                  }).save()
+        logch.send({embeds: [log]})
+  
+          try {
+            const dm = new MessageEmbed()
+            .setColor('PURPLE')
+            .setAuthor(`${client.user.username}`, client.user.avatarURL())
+            .setTitle(`You have been warned in **Chat And Chill.**`)
+            .addField(`Reason`, `Sending too large messages in the server.`)
+            .addField('Expires', `1 Hour`)
+            .setFooter({
+              text: 'Punishment ID:' + ` ${warnId}`
+            })
+                    msg.author.send({embeds: [yougotmuted]})
+ 
+                }catch(err) {
+                    console.log(err)
+                }
+      }
+
+
+
+
+})
+}

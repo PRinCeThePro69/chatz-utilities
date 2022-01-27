@@ -13,10 +13,15 @@ const badwords = require('./automod/badwords')
 const antiLink = require('./automod/anti-link')
 const antispam = require('./automod/antispam');
 const antiSpamping = require("./automod/anti-spamping");
+const antilongMessage = require('./automod/anti-longmessage')
+
+
+
 
 antiAd(client)
 badwords(client)
 antiLink(client)
 antispam(client)
 antiSpamping(client)
+antilongMessage(client)
 client.login(process.env.token);

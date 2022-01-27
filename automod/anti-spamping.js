@@ -10,7 +10,9 @@ module.exports = (client) => {
         msg.author.bot || !msg.guild) return;
         let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
-
+    let duration = 1;
+    const expires = new Date();
+    expires.setHours(expires.getHours() + duration)
       if(msg.mentions.size > 3) {
 		
            const log = new MessageEmbed()
