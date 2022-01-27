@@ -19,7 +19,7 @@ module.exports = (client) => {
         }
         // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
       
-        const textCaps = (caps / message.content.length) * 100;
+        const textCaps = (caps / msg.content.length) * 100;
         // Gets a percentage of the capital letters.
       console.log(textCaps)
         if (textCaps >= 75) {
@@ -28,11 +28,11 @@ module.exports = (client) => {
       
         const e = new MessageEmbed()
         .setColor('RED')
-	.setDescription(`${message.author} has been muted for too many caps in one message.`)
+	.setDescription(`${msg.author} has been muted for too many caps in one message.`)
          const log = new MessageEmbed()
         .setTitle('New Mute!')
         .setColor('RED')
-        .addField('User', `${message.author}`)
+        .addField('User', `${msg.author}`)
         .addField('Reason', 'Too many caps')
           .addField('Duration', '1 hour')
         .setTimestamp()
