@@ -10,7 +10,19 @@ module.exports = (client) => {
         msg.author.bot || !msg.guild) return;
         let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
-
+    function makeid(length) {
+        var result = '';
+        var characters = '0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+      }
+      let duration = 1;
+      const expires = new Date();
+      expires.setHours(expires.getHours() + duration)
+      const warnId = '[AutoMod]' + makeid(16)
       if(msg.content.length >= 500) {
 		
            const log = new MessageEmbed()
