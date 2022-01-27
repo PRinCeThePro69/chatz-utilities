@@ -21,7 +21,7 @@ module.exports = (client) => {
       
         const textCaps = (caps / msg.content.length) * 100;
         // Gets a percentage of the capital letters.
-      console.log(non_caps)
+      console.log(x)
         if (textCaps >= 75) {
         // If the capital letters is over or equals to 60% of the message,
         // and if the user isn't an ADMINISTRATOR, then...
