@@ -33,7 +33,7 @@ module.exports = (client) => {
                 .setTitle(`You have been muted in ${msg.guild.name}`)
                 .setDescription('You have been muted for violating our rules!')
                 .addField('Reason' , '[AutoMod] Sending external links which is not allowed in this server.')
-                .addField('Expires' , '30 minutes')
+                .addField('Duration' , '30 minutes')
                     msg.author.send({embeds: [yougotmuted]})
                 }catch(err) {
                     console.log(err)
