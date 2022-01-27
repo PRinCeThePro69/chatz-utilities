@@ -52,6 +52,8 @@ module.exports = (client) => {
                                console.log(err)
                            }
           
+                           msg.channel.send({embeds: [e]})
+                           logch.send({embeds: [log]})
           
            
         }
