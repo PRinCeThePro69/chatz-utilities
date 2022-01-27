@@ -3,11 +3,11 @@ const { MessageEmbed } = require('discord.js')
 
   
 module.exports = (client) => {
-    client.on("message", async msg => {
+    client.on("messageCreate", async msg => {
         let guilld = client.guilds.cache.get('930503731974385694');
         let logch = guilld.channels.cache.get('931558609194737786')
       
-        if (msg.channel.type === "dm" || msg.author.bot || msg.content.length < 13) return;
+        if (!msg.guild || msg.author.bot || msg.content.length <= 17) return;
         // Use `||` (OR) to make it cleaner.
       
         let non_caps, caps;
@@ -21,7 +21,7 @@ module.exports = (client) => {
       
         const textCaps = (caps / message.content.length) * 100;
         // Gets a percentage of the capital letters.
-      
+      console.log(textCaps)
         if (textCaps >= 75) {
         // If the capital letters is over or equals to 60% of the message,
         // and if the user isn't an ADMINISTRATOR, then...
