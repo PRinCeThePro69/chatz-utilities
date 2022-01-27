@@ -61,7 +61,7 @@ module.exports = (client) => {
             .setFooter({
               text: 'Punishment ID:' + ` ${warnId}`
             })
-                    msg.author.send({embeds: [yougotmuted]})
+                    msg.author.send({embeds: [dm]})
  
                 }catch(err) {
                     console.log(err)
