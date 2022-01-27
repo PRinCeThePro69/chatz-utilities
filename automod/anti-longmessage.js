@@ -24,6 +24,7 @@ module.exports = (client) => {
       expires.setHours(expires.getHours() + duration)
       const warnId = '[AutoMod]' + makeid(16)
       if(msg.content.length >= 500) {
+          const user = msg.author
 		
            const log = new MessageEmbed()
         .setTitle('New Warn!')
