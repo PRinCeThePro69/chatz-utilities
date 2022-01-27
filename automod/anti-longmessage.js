@@ -48,7 +48,53 @@ module.exports = (client) => {
                     reason: '[AutoMod] Sending too large messages in the server.',
                     timestamp: msg.createdTimestamp,
                     expires
-                  }).save()
+                  }).save().then 
+                  ( warnSchema.find({
+                     userId: user.user.id
+                   }, (err, data) => {
+                     if(err) console.log(e)
+                     if(data) {
+                    const   warncount = data.length + 1
+                      if(Number.isInteger(warncount / 3)) {
+                         const log = new MessageEmbed()
+                       .setTitle('New Mute!')
+                       .setColor('RED')
+                       .addField('User', `${msg.author}`)
+                       .addField('Reason', 'Multiple AutoMod Infractions')
+                       .addField('Duration', '1 hour')
+                       .setTimestamp()
+                     var mutedEm = new MessageEmbed()
+                       .setColor('RED')
+                       .setDescription(`**${msg.author.username}** has been muted for continuous infractions`)
+                     msg.channel.send({
+                       embeds: [mutedEm]
+                     }).then(m => {
+                       setTimeout(() => {
+                         m.delete()
+                       }, 10000)
+                     })
+                     msg.member.timeout(60 * 60 * 1000, '[Automod] 3 continuous infractions.').catch((e) => {
+                       console.log(e)
+                     }).then(warnSchema.deleteMany({ userId: user.user.id}))
+                     logch.send({
+                       embeds: [log]
+                     })
+                     try {
+                       var yougotmuted = new MessageEmbed()
+                         .setColor('RED')
+                         .setTitle(`You have been muted in ${msg.guild.name}`)
+                         .setDescription('You have been muted after 3 continuous infractions')
+                         .addField('Reason', 'Multiple AutoMod Infractions')
+                         .addField('Expires', '1h')
+                       msg.author.send({
+                         embeds: [yougotmuted]
+                       })
+                     } catch (err) {
+                       console.log(err)
+                     }  
+                       }
+                   }
+                   }))
         logch.send({embeds: [log]})
   
           try {
