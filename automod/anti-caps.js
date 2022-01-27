@@ -14,7 +14,8 @@ module.exports = (client) => {
         // Create the variables.
       
         for (x=0;x<msg.content.length;x++) {
-          if (msg.content[x].toUpperCase() === msg.content[x]) caps++;
+
+          if (msg.content[x].toUpperCase() === msg.content[x] && !msg.content[x] === Number) caps++;
           else non_caps++;
         }
         // `caps` is the amount of capital letters, while `non_caps` is the amount of non-capital letters. This checks for each letter of the message and gets the amount of `caps` and `non_caps`.
