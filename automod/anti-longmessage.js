@@ -35,7 +35,7 @@ module.exports = (client) => {
         .setTimestamp()
           const e = new MessageEmbed()
         .setColor('RED')
-				.setDescription(`${msg.author} You are not allowed to send too large in this server!`)
+				.setDescription(`${msg.author} You are not allowed to send too large messages in this server!`)
         msg?.delete()
         msg.channel.send({
 					embeds: [e]
