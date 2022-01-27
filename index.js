@@ -14,6 +14,7 @@ const antiLink = require('./automod/anti-link')
 const antispam = require('./automod/antispam');
 const antiSpamping = require("./automod/anti-spamping");
 const antilongMessage = require('./automod/anti-longmessage')
+const anticaps = require('./automod/anti-caps')
 
 
 
@@ -24,4 +25,5 @@ antiLink(client)
 antispam(client)
 antiSpamping(client)
 antilongMessage(client)
+anticaps(client)
 client.login(process.env.token);
