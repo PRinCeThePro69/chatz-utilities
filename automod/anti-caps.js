@@ -10,7 +10,7 @@ module.exports = (client) => {
         if (!msg.guild || msg.author.bot || msg.content.length <= 17) return;
         // Use `||` (OR) to make it cleaner.
       
-        let non_caps, caps;
+        let non_caps=0, caps=0;
         // Create the variables.
       
         for (x=0;x<msg.content.length;x++) {
