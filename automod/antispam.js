@@ -1,8 +1,8 @@
 const { MessageEmbed } = require('discord.js')
 module.exports = (client) => {
 const usersMap = new Map();
-const LIMIT = 3;
-const DIFF = 5000;
+const LIMIT = 5;
+const DIFF = 7000;
 client.on('message', async message => {
   let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
