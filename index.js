@@ -20,7 +20,7 @@ const anticaps = require('./automod/anti-caps')
 
 
 
-antid(client)
+antiAd(client)
 badwords(client)
 antiLink(client)
 antispam(client)
