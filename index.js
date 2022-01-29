@@ -7,7 +7,7 @@ const client = new Client({
 module.exports = client;
 client.commands = new Collection();
 
-require("./handler")(client);
+require("./handler/*.js")(client);
 const antiAd = require('./automod/anti-ad')
 const badwords = require('./automod/badwords')
 const antiLink = require('./automod/anti-link')
@@ -19,7 +19,7 @@ const anticaps = require('./automod/anti-caps')
 
 
 
-antiAd(client)
+antid(client)
 badwords(client)
 antiLink(client)
 antispam(client)
