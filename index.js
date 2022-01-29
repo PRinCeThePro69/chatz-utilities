@@ -8,7 +8,7 @@ module.exports = client;
 client.commands = new Collection();
 
 require("./handler/index.js")(client);
-require("./handler/antiCrash")(client);
+
 const antiAd = require('./automod/anti-ad')
 const badwords = require('./automod/badwords')
 const antiLink = require('./automod/anti-link')
