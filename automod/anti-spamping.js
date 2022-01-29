@@ -13,7 +13,7 @@ module.exports = (client) => {
     let duration = 1;
     const expires = new Date();
     expires.setHours(expires.getHours() + duration)
-      if(msg.mentions.size > 3) {
+      if(msg.mentions.size >= 3) {
 		
            const log = new MessageEmbed()
         .setTitle('New Mute!')
