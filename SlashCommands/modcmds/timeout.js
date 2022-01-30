@@ -55,7 +55,7 @@ const muteId = makeid(16)
 			        if (user === client.user) return interaction.reply({content: "You cant mute me", ephemeral: true})
 			 if (mem === interaction.member) return interaction.reply({content: "You cant mute yourself", ephemeral: true})
 
-       mem.timeout(timeInMs, `[${interaction.user.username}] ${reason}`)
+       mem.timeout(timeInMs, `[${interaction.user.username}] ${reason}`).catch(() => {})
 
         await new warnSchema({
          _id: muteId,
