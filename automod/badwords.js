@@ -123,7 +123,7 @@ module.exports = async (client) => {
         } catch (e) {
         }
       } else {
-        const array = ['kys', 'kill yourself', 'kill urself', 'go die', 'kill ur self', 'kill your self', 'die']
+        const array = ['kys', 'kill yourself', 'kill urself', 'go die', 'kill ur self', 'kill your self']
         if (array.some(w => ` ${msg.content.toLowerCase()} `.includes(` ${w} `))) {
           const blog = new MessageEmbed()
             .setTitle('New BAN!')
