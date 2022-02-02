@@ -60,7 +60,7 @@ const checkBans = async () => {
 for (const result of results) {
     const {userId} = result
     const guild = client.guilds.cache.get('930503731974385694')
-    await guild.members.unban(userId, 'Ban Expired')
+    await guild.members.unban(userId, 'Ban Expired').then(`unbanned ${userId}`)
 }  
 
 await warnSchema.deleteMany(conditional)
