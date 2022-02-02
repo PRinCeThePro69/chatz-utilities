@@ -23,7 +23,8 @@ const checkWarns = async () => {
     const conditional = {
         expires: {
             $lt: now
-        }
+        },
+        type: 'Warn'
     }
     const results = await warnSchema.find(conditional)
     if(results && results.length) {
@@ -46,5 +47,23 @@ const checkautow = async () => {
  }                          
 }                                               
 
-setInterval(checkautow, 1000 * 15);
+setInterval(checkautow, 1000 * 120);
+const checkBans = async () => {
+    const now = new Date()
+ const conditional = {
+     expires: {
+         $lt: now
+     },
+     type: 'Ban'
+ }
+ const results = await warnSchema.find(conditional)
+for (const result of results) {
+    const {userId} = result
+    const guild = client.guilds.fetch('930503731974385694')
+    await guild.members.unban(userId, 'Ban Expired')
+}  
+
+await warnSchema.deleteMany(conditional)
+}
+setInterval(checkBans, 1000 * 60);
 });
