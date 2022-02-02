@@ -65,5 +65,5 @@ for (const result of results) {
 
 await warnSchema.deleteMany(conditional)
 }
-setInterval(checkBans, 1000 * 60);
+setInterval(checkBans, 1000 * 15);
 });
