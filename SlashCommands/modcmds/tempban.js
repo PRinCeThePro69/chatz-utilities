@@ -56,8 +56,8 @@ try {
     time = parseInt(split[0])
     type = split[1].toLowerCase()
 } catch (e) {
-    interaction.deferReply({ ephemeral: true})
-    return interaction.followUp({content: 'You need to specify a valid format! (Example: 1m, 1d, 1h etc)', ephemeral: true})
+
+    return interaction.reply({content: 'You need to specify a valid format! (Example: 1m, 1d, 1h etc)', ephemeral: true})
 
 }
 if(type === 'h'){
@@ -65,8 +65,7 @@ if(type === 'h'){
 } else if (type === 'd') {
     time *= 60 * 24
 } else if (type !== 'm') {
-    interaction.deferReply({ ephemeral: true})
-  return  interaction.followUp({content: 'You need to specify a valid format! (Example: 1m, 1d, 1h etc)', ephemeral: true})
+   return interaction.reply({content: 'You need to specify a valid format! (Example: 1m, 1d, 1h etc)', ephemeral: true})
 }
          const expires = new Date();
   expires.setMinutes(expires.getMinutes() + time)
