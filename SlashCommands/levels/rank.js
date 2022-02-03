@@ -30,8 +30,9 @@ module.exports = {
 
             rank.build().then(data => {
                 const attachment = new Discord.MessageAttachment(data, `${target.tag}.png`);
+                interaction.reply({attachments: [attachment]})
             })
-            interaction.reply({attachments: [attachment]})
+            
 
     },
 };
