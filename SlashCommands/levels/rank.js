@@ -23,7 +23,7 @@ module.exports = {
             .setRequiredXP(Levels.xpFor(user.level + 1)) // We calculate the required Xp for the next level
             .setRank(user.position) // Position of the user on the leaderboard
             .setLevel(user.level) // Current Level of the user
-            .setStatus(target.presence.status)
+            .setStatus(interaction.user.presence.status)
             .setProgressBar("#00FFFF")
             .setUsername(interaction.user.username)
             .setDiscriminator(interaction.user.discriminator);
