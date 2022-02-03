@@ -15,7 +15,7 @@ module.exports = {
     run: async (client, interaction, args) => {
 
 
-        const user = Levels.fetch(interaction.user.id, interaction.guild.id)
+        const user = await Levels.fetch(interaction.user.id, interaction.guild.id, true)
             
             const rank = new canvacord.Rank() // Build the Rank Card
             .setAvatar(interaction.user.displayAvatarURL({format: 'png', size: 512, dynamic: false}))
