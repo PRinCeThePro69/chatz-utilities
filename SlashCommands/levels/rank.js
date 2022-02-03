@@ -29,7 +29,7 @@ module.exports = {
             .setDiscriminator(interaction.user.discriminator);
 
             rank.build().then(data => {
-                const attachment = new MessageAttachment(data, `${target.tag}.png`);
+                const attachment = new MessageAttachment(data, `${interaction.user.tag}.png`);
                 interaction.reply({attachments: [attachment]})
             })
             
