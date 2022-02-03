@@ -30,7 +30,7 @@ module.exports = {
 
             rank.build().then(data => {
                 const attachment = new MessageAttachment(data, `${interaction.user.tag}.png`);
-                interaction.reply({attachments: [attachment]})
+                interaction.reply({files: [attachment]})
             })
             
 
