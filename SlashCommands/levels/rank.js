@@ -1,4 +1,4 @@
-const { Client, CommandInteraction, MessageSelectMenu } = require("discord.js");
+const { Client, CommandInteraction, MessageSelectMenu, MessageAttachment } = require("discord.js");
 const Levels = require('discord-xp')
 const canvacord = require('canvacord');
 module.exports = {
