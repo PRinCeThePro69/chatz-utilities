@@ -13,7 +13,7 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, interaction, args) => {
-        const target = interaction.user
+        const target = interaction.member
 
         const user = Levels.fetch(target.id, interaction.guild.id)
             
