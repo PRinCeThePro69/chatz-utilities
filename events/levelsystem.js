@@ -16,7 +16,7 @@ client.on("messageCreate", async (msg) => {
         !msg.guild
     )
         return;
-const randomXp = Math.floor(math.random() * 24) + 1;
+const randomXp = Math.floor(Math.random() * 24) + 1;
 const hasLeveledUp = await Levels.appendXp(msg.author.id, msg.guild.id, randomXp)
 if(hasLeveledUp) {
     const user = await Levels.fetch(msg.author.id, msg.guild.id)
