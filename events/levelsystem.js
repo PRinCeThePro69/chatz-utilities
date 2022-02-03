@@ -21,10 +21,8 @@ const hasLeveledUp = await Levels.appendXp(msg.author.id, msg.guild.id, randomXp
 if(hasLeveledUp) {
     const user = await Levels.fetch(msg.author.id, msg.guild.id)
     msg.channel.send({
-        content: `**GG, ${msg.author}! You have just reached level __${user.level}__!**`
+        content: `:tada: **GG, ${msg.author}! You have just reached level __${user.level}__!**`
     })
 }
 
 });
-
-// auto mod stuff
