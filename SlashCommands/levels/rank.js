@@ -13,9 +13,9 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, interaction, args) => {
-        const target = client.users.cache.get(interaction.user.id)
 
-        const user = Levels.fetch(target.id, interaction.guild.id)
+
+        const user = Levels.fetch(interaction.user.id, interaction.guild.id)
             
             const rank = new canvacord.Rank() // Build the Rank Card
             .setAvatar(target.displayAvatarURL({format: 'png', size: 512, dynamic: false}))
