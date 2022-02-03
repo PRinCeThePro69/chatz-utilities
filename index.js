@@ -6,7 +6,8 @@ const client = new Client({
 });
 module.exports = client;
 client.commands = new Collection();
-
+const Levels = require('discord-xp')
+Levels.setURL(process.env.mongo)
 require("./handler/index.js")(client);
 
 const antiAd = require('./automod/anti-ad')
