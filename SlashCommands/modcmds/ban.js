@@ -56,7 +56,7 @@ module.exports = {
    if(target.id === client.user.id) return interaction.reply({content: 'You can\'t ban me.'})
         const successful = new MessageEmbed()
         .setColor('GREEN')
-        .setDescription(`:white_check_mark: ${target} has been successfully **banned**. | \`${banId}\``)
+        .setDescription(`<:ban:939208066455470131> ${target} has been successfully **banned**. | \`${banId}\``)
         const dm = new MessageEmbed()
         .setColor('BLUE')
         .setAuthor(`${client.user.username}`, client.user.avatarURL())
