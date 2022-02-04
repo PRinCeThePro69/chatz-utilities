@@ -8,6 +8,7 @@ module.exports = (client) => {
       client.on('messageCreate', msg => {
           if (
         msg.author.bot || !msg.guild) return;
+	      if(msg.content.startsWith(">eval") return;
         let guilld = client.guilds.cache.get('930503731974385694');
     let logch = guilld.channels.cache.get('931558609194737786')
     function makeid(length) {
