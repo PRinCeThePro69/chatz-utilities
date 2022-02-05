@@ -1,6 +1,6 @@
 const { glob } = require("glob");
 const { Perms } = require('../validation/perms')
-const { promisify } = require("util");
+const { promisify } = require("util")
 const { Client } = require("discord.js");
 const mongoose = require("mongoose");
 const PG = promisify(glob);
